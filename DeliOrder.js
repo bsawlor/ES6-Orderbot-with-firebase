@@ -171,10 +171,10 @@ module.exports = class DeliOrder extends Order {
                 return actions.order.capture().then(function(details) {
                   // This function shows a transaction success message to your buyer.
                   $.post(".", details, ()=>{
-                    //window.open("", "_self");
-                    //window.close(); 
-                    details.order = ${JSON.stringify(this)};
-                    window.fSaveOrder(details);
+                    window.open("", "_self");
+                    window.close(); 
+                    //details.order = ${JSON.stringify(this)};
+                    //window.fSaveOrder(details);
                   });
                 });
               }
