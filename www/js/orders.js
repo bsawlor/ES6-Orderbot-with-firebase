@@ -20,7 +20,7 @@ myApp.view.create('.view-main', {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-firebase.database().ref('orders/').on("value", snapshot => {
+firebase.database().ref('deliorders/').on("value", snapshot => {
     $$("#order_list").html("");
     let oTodos = snapshot.val();
     console.log(oTodos);
@@ -31,8 +31,10 @@ firebase.database().ref('orders/').on("value", snapshot => {
         <h3 class="w-auto">Order ID:${oTodo.id}</h3>
         <p class="ml-2 w-auto">Email:${oTodo.payer.email_address}</p>
         <p class="ml-2 w-auto">Order Number: ${oTodo.order.nOrder}</p>
-        <p class="ml-2 w-auto">Item Ordered: ${oTodo.order.sSize} ${oTodo.order.sItem}</p>
+        <p class="ml-2 w-auto">Item Ordered: ${oTodo.order.sSize}" sub</p>
         <p class="ml-2 w-auto">Toppings: ${oTodo.order.sToppings}</p>
+        <p class="ml-2 w-auto">Salad?: ${oTodo.order.sSalad}</p>
+        <p class="ml-2 w-auto">Dessert?: ${oTodo.order.sDessert}</p>
         <p class="ml-2 w-auto">Drink: ${oTodo.order.sDrinks}</p>
         </div`);
     });

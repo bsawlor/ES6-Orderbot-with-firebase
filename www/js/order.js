@@ -7,9 +7,9 @@ import firebaseConfig from "./firebase.js";
 firebase.initializeApp(firebaseConfig);
 
 
-window.fSaveOrder = (oOrder)=>{
+window.fSaveOrder = (oOrder) => {
     const todoID = new Date().toISOString().replace(".", "_");
-    firebase.database().ref('orders/' + todoID).set(oOrder).then(() => {
+    firebase.database().ref('deliorders/' + todoID).set(oOrder).then(() => {
         alert("Order Saved");
         window.open("", "_self");
         window.close();

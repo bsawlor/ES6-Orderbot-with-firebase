@@ -10,6 +10,11 @@ const OrderState = Object.freeze({
     DESSERT: Symbol("dessert")
 });
 
+// from https://www.delftstack.com/howto/javascript/javascript-round-to-2-decimal-places/
+function roundToTwo(num) {
+    return +(Math.round(num + "e+2") + "e-2");
+}
+
 module.exports = class DeliOrder extends Order {
     constructor(sNumber, sUrl) {
         super(sNumber, sUrl);
@@ -104,6 +109,8 @@ module.exports = class DeliOrder extends Order {
                     aReturn.push(this.sDessert);
                 }
 
+                this.nCost = roundToTwo(this.nCost);
+
                 aReturn.push(`The approx cost without tax is $${this.nCost}`);
                 aReturn.push(`Please pay for your order here`);
                 aReturn.push(`${this.sUrl}/payment/${this.sNumber}/`);
@@ -136,7 +143,7 @@ module.exports = class DeliOrder extends Order {
         if (sAmount != "-1") {
             this.nOrder = sAmount;
         }
-        const sClientID = process.env.SB_CLIENT_ID || 'AcJsQeMw7BujDIrU3H42nLjwhgFesxU6-znYRXmm3NHmVwcStx-ZEDwmUiETl7dnU6dzMrIZNIOvTqFK'; // 'put your client id here for testing ... Make sure that you delete it before committing'
+        const sClientID = process.env.SB_CLIENT_ID || ''; // 'put your client id here for testing ... Make sure that you delete it before committing'
         return (`
       <!DOCTYPE html>
   
@@ -171,10 +178,10 @@ module.exports = class DeliOrder extends Order {
                 return actions.order.capture().then(function(details) {
                   // This function shows a transaction success message to your buyer.
                   $.post(".", details, ()=>{
-                    window.open("", "_self");
-                    window.close(); 
-                    //details.order = ${JSON.stringify(this)};
-                    //window.fSaveOrder(details);
+                    //window.open("", "_self");
+                    //window.close(); 
+                    details.order = ${JSON.stringify(this)};
+                    window.fSaveOrder(details);
                   });
                 });
               }
