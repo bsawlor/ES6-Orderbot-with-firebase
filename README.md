@@ -2,7 +2,9 @@
 
 This is based on a starting SMS app provided by RHildred (<a href="https://github.com/rhildred/twiliobot2021" target="_blank">ES6 Order Bot</a>)
 
-This app is currently configured to store orders in an existing firebase.
+This app is for ordering a sub from a deli, along with toppings, optional salad, dessert, and drink.
+
+This app is currently configured to store the orders in an existing firebase.
 
 If you want to change the firebase: 
 
