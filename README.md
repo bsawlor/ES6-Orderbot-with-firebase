@@ -1,4 +1,4 @@
-# <a href="https://github.com/bsawlor/Orderbot-with-firebase" target="_blank">Order Bot with Firebase</a>
+# <a href="https://github.com/bsawlor/Orderbot-with-firebase" target="_blank">Order Bot with Firebase</a> by Brock
 
 This is based on a starting SMS app provided by RHildred (<a href="https://github.com/rhildred/twiliobot2021" target="_blank">ES6 Order Bot</a>)
 
